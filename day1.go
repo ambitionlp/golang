@@ -18,4 +18,44 @@
 	fmt.Println("slice1:", slice1)
 	copy(slice2, slice1)
 	fmt.Println("slice2", slice2)
-  
+
+	// crate a map
+	//必须初始化
+	var map1 = make(map[string]int) //
+	// map2 := make(map[string]int)
+	map1["a"] = 1
+	map1["b"] = 2
+
+	for key := range map1 {
+		fmt.Println("value:", map1[key])
+	}
+	//delete() function
+	delete(map1, "a")
+	//ok-idiom
+	value, ok := map1["b"]
+	fmt.Print("value:", value, "ok:", ok, "length:", len(map1))
+	
+//Swap change
+func Swap(a *int, b *int) {
+	t := *a
+	*a = *b
+	*b = t
+}
+
+// Point 指针
+func Point() {
+	var a, b int
+	var pa, pb *int
+	var ppa **int
+	pa = &a
+	pb = &b
+	ppa = &pa
+	a = 10
+	b = 20
+
+	fmt.Println("a=", *pa, "a的地址为：", pa, "pa的地址为：", ppa)
+	Swap(pa, pb)
+	fmt.Println("a=", a, "b=", b)
+}
+
+
